@@ -52,4 +52,4 @@ def list(args):
     except ValueError:
         raise Exception('not a JSON object: {}'.format(response.text))
 
-    return 'application/json', data
+    return 'application/json', json.dumps(data)
