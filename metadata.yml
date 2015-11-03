@@ -3,7 +3,11 @@ name: chromatin_states_to_jbrowse
 description: Landscape of Arabidopsis thaliana chromatin states using 16 features, including DNA sequence, CG methylation, histone variants, and modifications
 version: 0.1
 icon: CBMSO-logo.png
-tags: chromatin, motif, epigenetics, ChIP-Seq
+tags:
+    - 'chromatin'
+    - 'motif'
+    - 'epigenetics'
+    - 'ChIP-Seq'
 
 authors:
     - name: Vivek Krishnakumar
