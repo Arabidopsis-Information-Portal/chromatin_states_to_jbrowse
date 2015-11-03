@@ -38,7 +38,7 @@ data/tpc124578_SupplementalDS2-state_9.gff3
   },
   "key" : "State 1"
   "storeClass" : "Araport/Store/SeqFeature/REST",
-  "baseUrl" : "https://api.araport.org/community/v0.3/vivek-dev/chromatin_state_to_jbrowse_v0.1",
+  "baseUrl" : "https://api.araport.org/community/v0.3/vivek-dev/chromatin_states_to_jbrowse_v0.1",
   "compress" : 0,
   "type" : "JBrowse/View/Track/CanvasFeatures",
   "category" : "Community Data / Sequeira-Mendes et al. 2014 / Chromatin States",
@@ -48,6 +48,9 @@ data/tpc124578_SupplementalDS2-state_9.gff3
        "URL" : "http://www.plantcell.org/content/early/2014/06/11/tpc.114.124578"
   },
   "glyph" : "JBrowse/View/FeatureGlyph/Box",
-  "label" : "chromatin_state_1"
+  "label" : "chromatin_state_1",
+  "query" : {
+    "chromatin_state" : 1
+  }
 }
 ```

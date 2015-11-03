@@ -17,8 +17,8 @@ def search(args):
     if start >= end:
         fail('End coordinate must be greater than start')
     featuretype = args['featuretype']
-    cstate = 1 if 'cstate' not in args else \
-        args['cstate']
+    cstate = 1 if 'chromatin_state' not in args else \
+        args['chromatin_state']
 
     if q == 'features':
         data = tools.parse_gff(chrom=chrom, start=start, \
