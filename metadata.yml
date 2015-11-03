@@ -1,0 +1,88 @@
+---
+name: chromatin_states_to_jbrowse
+description: Landscape of Arabidopsis thaliana chromatin states using 16 features, including DNA sequence, CG methylation, histone variants, and modifications
+version: 0.1
+icon: CBMSO-logo.png
+tags: chromatin, motif, epigenetics, ChIP-Seq
+
+authors:
+    - name: Vivek Krishnakumar
+      email: vkrishna@jcvi.org
+      sponsor_organization: J. Craig Venter Institute
+      sponsor_uri: http://www.jcvi.org
+
+type: generic
+main_module: main.py
+url: http://www.plantcell.org/content/early/2014/06/11/tpc.114.124578
+validate_request: true
+whitelist:
+  - www.araport.org
+  - api.araport.org
+requirements:
+  - biopython
+  - gffutils
+
+endpoints:
+  /search:
+    description: Parse GFF, extract chromatin states from input chromosome range and convert to JSON
+    summary: Mimics the JBrowse /features REST endpoint
+    parameters:
+      - name: q
+        description: Query the desired JBrowse REST API endpoint
+        type: string
+        required: true
+        enum:
+          - 'features'
+          - 'globalStats'
+          - 'regionStats'
+          - 'regionFeatureDensities'
+        default: 'features'
+      - name: chr
+        description: Chromosome
+        type: string
+        required: true
+        default: 'Chr1'
+        pattern: '^Chr[1-5CM]$'
+      - name: start
+        description: Start
+        type: integer
+        format: int64
+        required: true
+        default: 216843
+        minimum: 1
+      - name: end
+        description: End
+        type: integer
+        format: int64
+        required: true
+        default: 225822
+        minimum: 1
+      - name: featuretype
+        description: GFF featuretype
+        type: string
+        default: 'open_chromatin_region'
+        required: true
+      - name: scale
+        description: Scale
+        type: number
+        format: double
+        default: 0.0
+      - name: basesPerSpan
+        description: Bases Per Span
+        type: number
+        format: double
+        default: 0.0
+  /list:
+    description: Chromosome information
+    summary: Returns a list of A. thaliana chromosome identifiers and length
+    parameters: []
+
+sources:
+  - title: The Functional Topography of the Arabidopsis Genome Is Organized in a Reduced Number of Linear Motifs of Chromatin States
+    description: "High-resolution map of chromatin states (9) based on DNA and epigenetic data. Published in Plant Cell (2014) DOI: 10.1105/tpc.114.124578"
+    language: en-us
+    sponsor_organization_name: Centro de Biologia Molecular Severo Ochoa
+    sponsor_uri: http://www.cbm.uam.es/joomla-rl/index.php/en/
+    provider_name: Prof. Crisanto Gutiérrez
+    provider_email: cgutierrez@cbm.csic.es
+    uri: http://web4.cbm.uam.es/joomla-rl/index.php/en/scientific-departments/genome-dynamics-and-function?id=%20543
