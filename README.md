@@ -33,24 +33,36 @@ data/tpc124578_SupplementalDS2-state_9.gff3
 * Set up the following track configuration in JBrowse within `trackList.json`:
 ```
 {
-  "style" : {
-    "color" : "red"
-  },
-  "key" : "State 1"
-  "storeClass" : "Araport/Store/SeqFeature/REST",
-  "baseUrl" : "https://api.araport.org/community/v0.3/vivek-dev/chromatin_states_to_jbrowse_v0.1",
-  "compress" : 0,
-  "type" : "JBrowse/View/Track/CanvasFeatures",
-  "category" : "Community Data / Sequeira-Mendes et al. 2014 / Chromatin States",
-  "metadata" : {
-       "Description" : "High-resolution map of chromatin state 1, characterized by high amounts of H3K4me2 and H3K4me3, H3 acetylation, H3K36me3, and H2Bub, typically associated with transcribed regions",
-       "Source" : "Sequeira-Mendes, et al. 2014 (Plant Cell)",
-       "URL" : "http://www.plantcell.org/content/early/2014/06/11/tpc.114.124578"
-  },
-  "glyph" : "JBrowse/View/FeatureGlyph/Box",
-  "label" : "chromatin_state_1",
-  "query" : {
-    "chromatin_state" : 1
-  }
+    "style": {
+        "color": "red"
+    },
+    "key": "Chromatin State 1",
+    "storeClass": "Araport/Store/SeqFeature/REST",
+    "baseUrl": "https://api.araport.org/community/v0.3/vivek-dev/chromatin_states_to_jbrowse_v0.1",
+    "compress": 0,
+    "type": "JBrowse/View/Track/CanvasFeatures",
+    "category": "Community Data / Sequeira-Mendes et al. 2014"
+    "metadata": {
+        "Description": "High-resolution map of chromatin state 1, characterized by high amounts of H3K4me2 and H3K4me3, H3 acetylation, H3K36me3, and H2Bub, typically associated with transcribed regions",
+        "Source": "Sequeira-Mendes, et al. 2014 (Plant Cell)",
+        "URL": "http://www.plantcell.org/content/early/2014/06/11/tpc.114.124578"
+    },
+    "glyph": "JBrowse/View/FeatureGlyph/Box",
+    "label": "chromatin_state_1",
+    "query": {
+        "chromatin_state": 1
+    }
 }
 ```
+Repeat the above configuration stanza for the rest of the chromatin states (2-9), altering the following key-value pairs in the config:
+  * `key`
+  * `label`
+  * `query -> chromatin_state`.
+  * `metadata -> Description`
+  * `style -> color`
+
+**Demo**:
+
+![](assets/all_chromatin_states_jbrowse.png)
+
+Above screenshot shows the color-coded chromatin domain annotations over an ~50-kb region of the Arabidopsis Chromosome 1 (Chr1:11350001..11410863) being rendered in JBrowse.
