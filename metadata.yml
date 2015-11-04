@@ -53,7 +53,6 @@ endpoints:
         format: int64
         required: true
         default: 216843
-        minimum: 1
       - name: end
         description: End
         type: integer
