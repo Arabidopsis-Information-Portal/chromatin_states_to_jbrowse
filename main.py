@@ -39,8 +39,11 @@ def list(args):
         token = args['_token']
         url = 'https://api.araport.org/community/v0.3/aip/get_sequence_by_coordinate_v0.3/list'
         data = tools.do_request(url, token)
-    elif q == 'generateConfig':
-        endpoint = args['_endpoint']
-        data = tools.generate_config(endpoint)
+    elif q == 'makeTrackListJson':
+        url = args['_url']
+        data = {
+            'plugins' : { 'Araport' : { 'location' : './plugins/Araport' } },
+            'tracks' : tools.generate_config(url)
+        }
 
     return 'application/json', json.dumps(data)

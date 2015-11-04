@@ -56,7 +56,7 @@ def parse_gff(chrom, start, end, featuretype, chromatin_state):
     return response_body
 
 
-def generate_config(api_endpoint):
+def generate_config(api_url):
     """Generate the required trackList.json config stanzas for JBrowse"""
 
     config_template = {
@@ -66,7 +66,7 @@ def generate_config(api_endpoint):
         "displayMode": "compact",
         "key" : "Chromatin State %(state)s",
         "storeClass" : "Araport/Store/SeqFeature/REST",
-        "baseUrl" : "%(endpoint)s",
+        "baseUrl" : "%(api_url)s",
         "type" : "JBrowse/View/Track/CanvasFeatures",
         "category" : "Community Data / Sequeira-Mendes et al. 2014",
         "metadata" : {
@@ -93,7 +93,7 @@ def generate_config(api_endpoint):
               { 'state': str(atoms[0]),
                 'color' : atoms[1],
                 'description' : atoms[2],
-                'endpoint' : api_endpoint
+                'api_url' : api_url
               })
         )
 

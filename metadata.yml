@@ -85,15 +85,15 @@ endpoints:
         format: double
         default: 0.0
   /list:
-    description: Chromosome information or JBrowse track configs
-    summary: Returns a list of A. thaliana chromosome identifiers and length or JBrowse track configurations
+    description: Chromosome information or JBrowse trackList.json config
+    summary: Returns a list of A. thaliana chromosome identifiers and length or JBrowse trackList.json configs
     parameters:
       - name: q
         type: string
         required: true
         enum:
           - 'listChromosomes'
-          - 'generateConfig'
+          - 'makeTrackListJson'
         default: 'listChromosomes'
 
 sources:
