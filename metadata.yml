@@ -1,7 +1,7 @@
 ---
 name: chromatin_states_to_jbrowse
 description: Landscape of Arabidopsis thaliana chromatin states using 16 features, including DNA sequence, CG methylation, histone variants, and modifications
-version: 0.1
+version: 0.2
 icon: CBMSO-logo.png
 tags:
     - 'chromatin'
@@ -85,9 +85,16 @@ endpoints:
         format: double
         default: 0.0
   /list:
-    description: Chromosome information
-    summary: Returns a list of A. thaliana chromosome identifiers and length
-    parameters: []
+    description: Chromosome information or JBrowse track configs
+    summary: Returns a list of A. thaliana chromosome identifiers and length or JBrowse track configurations
+    parameters:
+      - name: q
+        type: string
+        required: true
+        enum:
+          - 'listChromosomes'
+          - 'generateConfig'
+        default: 'listChromosomes'
 
 sources:
   - title: The Functional Topography of the Arabidopsis Genome Is Organized in a Reduced Number of Linear Motifs of Chromatin States
@@ -97,4 +104,4 @@ sources:
     sponsor_uri: http://www.cbm.uam.es/joomla-rl/index.php/en/
     provider_name: Prof. Crisanto Gutiérrez
     provider_email: cgutierrez@cbm.csic.es
-    uri: http://web4.cbm.uam.es/joomla-rl/index.php/en/scientific-departments/genome-dynamics-and-function?id=%20543
+    uri: http://www.plantcell.org/content/early/2014/06/11/tpc.114.124578

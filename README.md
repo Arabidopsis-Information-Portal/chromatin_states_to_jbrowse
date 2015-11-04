@@ -10,7 +10,7 @@ Joana Sequeira-Mendes, Irene Aragüez, Ramón Peiró, Raul Mendez-Giraldez, Xiao
 
 **Requirements**:
 * Enable the following plugin in JBrowse within `tracks.conf`:
-  * [Araport REST](https://github.com/Arabidopsis-Information-Portal/jbrowse/blob/stable/plugins/Araport/js/Store/SeqFeature/REST) with bindings to ADAMA
+  * [Araport REST](https://github.com/Arabidopsis-Information-Portal/jbrowse/blob/stable/plugins/Araport/js/Store/SeqFeature/REST.js) with bindings to ADAMA
 ```
 [plugins]
 Araport.location = ./plugins/Araport
@@ -28,7 +28,7 @@ data/tpc124578_SupplementalDS2-state_7.gff3
 data/tpc124578_SupplementalDS2-state_8.gff3
 data/tpc124578_SupplementalDS2-state_9.gff3
 ```
-* Ensure that the [chromatin_states_to_jbrowse](https://github.com/vivekkrish/chromatin_state_to_jbrowse) adapter is registered and accessible via ADAMA. See [metadata.yml](https://github.com/vivekkrish/chromatin_state_to_jbrowse/blob/master/metadata.yml) for adapter configuration (list of dependency modules and REST endpoints described using swagger.io spec).
+* Ensure that the [chromatin_states_to_jbrowse](https://github.com/Arabidopsis-Information-Portal/chromatin_state_to_jbrowse) adapter is registered and accessible via ADAMA. See [metadata.yml](metadata.yml) for adapter configuration (list of dependency modules and REST endpoints described using swagger.io spec).
 
 * Set up the following track configuration in JBrowse within `trackList.json`:
 ```
@@ -65,4 +65,4 @@ Repeat the above configuration stanza for the rest of the chromatin states (2-9)
 
 ![](assets/all_chromatin_states_jbrowse.png)
 
-Above screenshot shows the color-coded chromatin domain annotations over an ~50-kb region of the Arabidopsis Chromosome 1 (Chr1:11350001..11410863) being rendered in JBrowse.
+Above screenshot shows the color-coded chromatin domain annotations over an ~50-kb region of the Arabidopsis Chromosome 1 (Chr1:11350001..11410863) being rendered in JBrowse
