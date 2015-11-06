@@ -1,4 +1,5 @@
 import json
+import urllib
 
 import tools
 
@@ -28,6 +29,10 @@ def search(args):
             return fail('Failed to parse gff')
     elif q == 'globalStats':
         data = { 'scoreMin': -1, 'scoreMax': 1 }
+    elif q == 'regionStats':
+        raise Exception('Not implemented yet')
+    elif q == 'regionFeatureDensities':
+        raise Exception('Not implemented yet')
 
     return 'application/json', tools.sendJBrowse(data)
 
@@ -36,11 +41,14 @@ def list(args):
     q = args['q']
 
     if q == 'listChromosomes':
-        token = args['_token']
-        url = 'https://api.araport.org/community/v0.3/aip/get_sequence_by_coordinate_v0.3/list'
+        _url, token = args['_url'], args['_token']
+
+        url = urllib.urljoin(_url, 'aip', 'get_sequence_by_coordinate_v0.3', 'list')
         data = tools.do_request(url, token)
     elif q == 'makeTrackListJson':
-        url = args['_url']
+        _url, namespace, adapter = args['_url'], args['_namespace'], args['_adapter']
+
+        url = urllib.urljoin(_url, namespace, adapter)
         data = {
             'plugins' : { 'Araport' : { 'location' : './plugins/Araport' } },
             'tracks' : tools.generate_config(url)
