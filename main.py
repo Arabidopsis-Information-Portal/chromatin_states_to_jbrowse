@@ -1,5 +1,5 @@
 import json
-import urllib
+from urlparse import urljoin
 
 import tools
 
@@ -43,12 +43,12 @@ def list(args):
     if q == 'listChromosomes':
         _url, token = args['_url'], args['_token']
 
-        url = urllib.urljoin(_url, 'aip', 'get_sequence_by_coordinate_v0.3', 'list')
+        url = urljoin(_url, 'aip', 'get_sequence_by_coordinate_v0.3', 'list')
         data = tools.do_request(url, token)
     elif q == 'makeTrackListJson':
         _url, namespace, adapter = args['_url'], args['_namespace'], args['_adapter']
 
-        url = urllib.urljoin(_url, namespace, adapter)
+        url = urljoin(_url, namespace, adapter)
         data = {
             'plugins' : { 'Araport' : { 'location' : './plugins/Araport' } },
             'tracks' : tools.generate_config(url)
