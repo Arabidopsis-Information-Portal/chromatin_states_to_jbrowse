@@ -17,13 +17,12 @@ def search(args):
     end = args['end']
     if start >= end:
         fail('End coordinate must be greater than start')
-    featuretype = args['featuretype']
     cstate = 1 if 'chromatin_state' not in args else \
         args['chromatin_state']
 
     if q == 'features':
         data = tools.parse_gff(chrom=chrom, start=start, \
-            end=end, featuretype=featuretype, chromatin_state=cstate)
+            end=end, chromatin_state=cstate)
 
         if not data:
             return fail('Failed to parse gff')

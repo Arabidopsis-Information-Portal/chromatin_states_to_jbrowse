@@ -28,7 +28,7 @@ def read_index(gff_file, inmemory=False):
     return gffutils.create_db(gff_file, gff_file_db)
 
 
-def parse_gff(chrom, start, end, featuretype, chromatin_state):
+def parse_gff(chrom, start, end, chromatin_state):
     """Parse GFF and return JSON."""
 
     gff_file = "{0}_{1}.gff3".format(gff_file_prefix, chromatin_state)
@@ -36,7 +36,7 @@ def parse_gff(chrom, start, end, featuretype, chromatin_state):
 
     response_body = { 'features' : [] }
     region = "{0}:{1}-{2}".format(chrom, start, end)
-    for feat in db.region(region=region, featuretype=featuretype):
+    for feat in db.region(region=region):
         _strand = 1 if feat.strand == '+' else \
             (-1 if feat.strand == '-' else 0)
         pfeat = {
@@ -46,7 +46,7 @@ def parse_gff(chrom, start, end, featuretype, chromatin_state):
             'uniqueID' : feat.id,
             'name' : feat.attributes.get('Name', [feat.id])[0],
             'description' : feat.attributes.get('Note', [None])[0],
-            'type' : featuretype,
+            'type' : feat.featuretype,
             'score' : feat.score if (isinstance(feat.score, (int, float))) else 0,
             'subfeatures': []
         }
@@ -68,7 +68,7 @@ def generate_config(api_url):
         "storeClass" : "Araport/Store/SeqFeature/REST",
         "baseUrl" : "%(api_url)s",
         "type" : "JBrowse/View/Track/CanvasFeatures",
-        "category" : "Community Data / Sequeira-Mendes et al. 2014",
+        "category" : "Motifs / Chromatin States (Sequeira-Mendes et al. 2014)",
         "metadata" : {
             "Description" : "%(description)s",
             "Source" : "Sequeira-Mendes, et al. 2014 (Plant Cell)",

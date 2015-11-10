@@ -60,11 +60,6 @@ endpoints:
         required: true
         default: 225822
         minimum: 1
-      - name: featuretype
-        description: GFF featuretype
-        type: string
-        default: 'open_chromatin_region'
-        required: true
       - name: chromatin_state
         description: Select one of 9 chromatin states
         type: integer
@@ -91,9 +86,9 @@ endpoints:
         type: string
         required: true
         enum:
-          - 'listChromosomes'
           - 'makeTrackListJson'
-        default: 'listChromosomes'
+          - 'listChromosomes'
+        default: 'makeTrackListJson'
 
 sources:
   - title: The Functional Topography of the Arabidopsis Genome Is Organized in a Reduced Number of Linear Motifs of Chromatin States

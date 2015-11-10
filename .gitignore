@@ -60,5 +60,5 @@ docs/_build/
 # PyBuilder
 target/
 
-# sqlite3 database
+# gffutils sqlite3 database
 *.db
