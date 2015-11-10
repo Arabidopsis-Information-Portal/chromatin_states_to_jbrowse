@@ -1,7 +1,7 @@
 1	red	open chromatin; transcribed regions and transcription start sites (TSSs)
 2	salmon	intergenic regions; proximal promoter elements
 3	magenta	open chromatin; highly depleted in Polycomb marks; transcription elongation signature
-4	gold	intergenic regions; distal promoter elements; most upstream region of promoters
+4	gold	intergenic regions; distal promoter elements; H3K27me3-enriched
 5	gray	intergenic regions; typical Polycomb-regulated chromatin
 6	brown	open chromatin; intragenic
 7	green	open chromatin; intragenic
